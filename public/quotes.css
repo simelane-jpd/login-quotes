@@ -1,0 +1,26 @@
+.quote {
+    background-color: limegreen;
+    border-radius : 0.5em;
+    padding: 1em;
+	margin-top:1em;
+	width: 40%;
+	font-size: medium;
+	
+	
+}
+
+.content {
+	margin: 1em 0;
+	width:50%;
+	font-size:medium;
+	
+}
+
+.quoteApp {
+	margin: auto;
+	width: 70%;
+}
+.nex {
+	width:100px;
+	font-size: medium;
+}

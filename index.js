@@ -8,9 +8,10 @@ const session = require("express-session");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const initializePassport = require("./passportConfig");
-
+var path = require('path');
 initializePassport(passport);
-//app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "static")));
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 

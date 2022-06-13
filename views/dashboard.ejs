@@ -2,16 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+    
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <h1>Home</h1>
+   
     
 
-    <h4>Hello <%= user %></h4>
+    <h3 style="color:black"
+    style="font-size: medium"
+    >Logged in as <%= user %></h3>
 
     <a href="/users/logout">Logout</a>
+
+    <div x-data="loveCounter" >
+      <h1>Show some heart</h1>
+      
+      <div x-text="hearts()" >
+      </div>
+
+      <div>
+          <button @click="love" class="hea">Show 💟</button>
+         <span x-text="loveCounter"></span>
+      </div>
+    </div>
+   
+    
+  
+   
+   
+  
+   <!--div x-data="quoteApp">
+    <div x-text="quote.quote"></div>
+  </div-->
+   <hr>
+  
+<div x-data="quoteApp" class="quoteApp" >
+   
+
+    <h1>Quote App</h1>
+    <button @click="getQuote()" class="nex">Next quote 📢</button>
+    <div class="quote">
+      <div x-text="quote.quote" class="content" ></div>
+      <div>
+        <strong>by </strong><span x-text="quote.author"></span>
+      </div>
+      
+      
+    </div>
+  </div>
+  
+  <div id="app"></div>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="/main.js"></script>
+  <!--script>"main.js"</script>
+  <script>'love-counter.js'</script>
+  <script>'quotes.js'</script-->
+ 
+  <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+   
 </body>
 </html>
