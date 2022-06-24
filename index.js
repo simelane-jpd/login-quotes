@@ -1,5 +1,10 @@
 const express = require("express");
 const app = express();
+//const lovecounter = require ("./love-counter")
+//const expresshandlebars = require('express-handlebars');
+const cors = require('cors');
+//import { engine } from 'express-handlebars';
+//const users = require('./users');
 const passport = require("passport");
 const { pool } = require("./dbConfig");
 const bcrypt = require("bcrypt");
@@ -9,12 +14,22 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const initializePassport = require("./passportConfig");
 var path = require('path');
+//const handlebarSetup = expresshandlebars ({
+  //partialsDir: "./views/partials",
+  //viewPath: './views',
+  //layoutsDir: './views/layouts'
+//});
 initializePassport(passport);
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, "static")));
 app.use(express.urlencoded({ extended: false }));
-app.set('view engine', 'ejs');
+//app.engine('handlebars', engine.expresshandlebars);
+//app.engine('handlebars', handlebarSetup);
+//app.set('view engine', '');
+//app.set('views', './views');
 
+app.set('view engine', 'ejs');
+app.use(cors());
 app.use(
     session({
       // Key we want to keep secret which will encrypt all of our information
@@ -38,16 +53,17 @@ app.get("/", (req, res) => {
 app.get("/users/register", checkAuthenticated, (req, res) => {
      res.render("register");
 });
-  
+
+
   app.get("/users/login", checkAuthenticated, (req, res) => {
     // flash sets a messages variable. passport sets the error message
     //console.log(req.session.flash.error);
     res.render("login");
   });
   
-  app.get("/users/dashboard", (req, res) => {
+  app.get("/users/home", (req, res) => {
     //console.log(req.isAuthenticated());
-    res.render("dashboard", { user:req.user.name });
+    res.render("home", { user:req.user.name });
   });
   app.get("/users/logout", (req, res) => {
     //req.logout();
@@ -127,7 +143,7 @@ app.get("/users/register", checkAuthenticated, (req, res) => {
 app.post(
     "/users/login",
     passport.authenticate("local", {
-      successRedirect: "/users/dashboard",
+      successRedirect: "/users/home",
       failureRedirect: "/users/login",
       failureFlash: true
     })
@@ -135,7 +151,7 @@ app.post(
 
   function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      return res.redirect("/users/dashboard");
+      return res.redirect("/users/home");
     }
     next();
   }

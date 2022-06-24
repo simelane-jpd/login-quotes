@@ -9,9 +9,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style=
-      
-    >login</h1>
+
+  <style>
+ body {
+    background-color:gold
+  }
+  h1 {
+    color:blue
+   
+  }
+  .logs {
+text-align:center;
+width: 100%;
+font-size: larger;
+  }
+
+  </style>
+  <div class="logs">
+    <h1>Login</h1>
     <ul>
         <% if(messages.success_msg) { %>
         <li><%= messages.success_msg %></li>
@@ -53,6 +68,7 @@
   
         <a href="/users/register">Register</a>
       </form>
-      
+    </div> 
+    <script>"love-counter.js"</script>
 </body>
 </html>

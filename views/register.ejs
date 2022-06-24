@@ -10,8 +10,26 @@
     <title>Document</title>
 </head>
 <body>
+
+  <style>
+
+body {
+    background-color:gold
+  }
+  h1 {
+    color:blue
+   
+  }
+  .logs {
+text-align:center;
+width: 100%;
+font-size: larger;
+  }
+
+  </style>
+  <div class="logs">
     <h1>Register</h1>
-    <ul>
+    <l>
         <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
         <li><%= error.message %></li>
         <% }) %> <% } %>
@@ -53,6 +71,8 @@
   
         <a href="/users/login">Already registered? Login here</a>
       </form>
+    </div>
+    <script>"love-counter.js"</script>
 </body>
 
 </html>
