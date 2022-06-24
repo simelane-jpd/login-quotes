@@ -7,10 +7,11 @@ const cors = require('cors');
 //const users = require('./users');
 const passport = require("passport");
 const { pool } = require("./dbConfig");
-const bcrypt = require("bcrypt");
+
 const flash = require("express-flash");
 const session = require("express-session");
 require("dotenv").config();
+const bcrypt = require("bcrypt");
 const PORT = process.env.PORT || 3000;
 const initializePassport = require("./passportConfig");
 var path = require('path');
