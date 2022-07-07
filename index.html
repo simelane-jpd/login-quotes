@@ -101,7 +101,7 @@
              <a href="/users/register">Register</a>
            </form>
          </div> 
-    <!--h1>Register</h1>
+    <h1>Register</h1>
     <ul>
         <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
         <li><%= error.message %></li>
@@ -193,16 +193,7 @@
     <!--h4>Hello <%= user %></h4-->
 
     <a href="/users/logout">Logout</a>
-    <div id="app"></div>
-    <div x-data="loveCounter" >
-      <h1>Show some heart</h1>
-      <div x-text="hearts()" >
-      </div>
-      <div>
-          <button @click="love" class="hea" >Show 💟</button>
-          <span x-text="loveCounter"></span>
-      </div>
-    </div>
+    
    
     
   
@@ -212,25 +203,9 @@
    <!--div x-data="quoteApp">
     <div x-text="quote.quote"></div>
   </div-->
-   <hr>
-  
-<div x-data="quoteApp" class="quoteApp" >
    
 
-    <h1>Quote App</h1>
-    <button @click="getQuote()">Next quote 📢</button>
-    <div class="quote">
-      <div x-text="quote.quote" class="content" ></div>
-      <div>
-        <strong>by </strong><span x-text="quote.author"></span>
-      </div>
-      
-      
-    </div>
-  </div>
-
-    <script type="module" src="/main.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script>'index.js'</script>
+   
   </body>
 </html>
